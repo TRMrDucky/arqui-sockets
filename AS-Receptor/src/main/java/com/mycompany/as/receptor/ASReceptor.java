@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.as.receptor;
+
+import com.google.gson.Gson;
 
 /**
  *
@@ -11,6 +9,11 @@ package com.mycompany.as.receptor;
 public class ASReceptor {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Gson gson = new Gson();
+        Red red = new Red();
+        red.recibir();
+        String jsonInput = "";
+        Mensaje mensaje = gson.fromJson(jsonInput, Mensaje.class);
+        System.out.println(mensaje.toString());
     }
 }

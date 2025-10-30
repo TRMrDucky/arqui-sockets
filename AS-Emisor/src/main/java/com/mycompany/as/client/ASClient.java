@@ -4,6 +4,8 @@
 
 package com.mycompany.as.client;
 
+import com.google.gson.Gson;
+
 /**
  *
  * @author 52644
@@ -11,6 +13,15 @@ package com.mycompany.as.client;
 public class ASClient {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Red red = new Red();
+        Gson gson = new Gson();
+        Mensaje mensaje = new Mensaje("TRMrDucky", "Saludos desde el emisor");
+       
+        String json = gson.toJson(mensaje);
+
+        red.agregar(json);
+
+        
     }
+    
 }
