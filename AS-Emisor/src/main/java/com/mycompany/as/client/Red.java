@@ -18,7 +18,7 @@ public class Red {
         cola.add(elemento);
     }
 
-    public String sacar(){
+    public String enviar(){
         return cola.remove(0);
     }
 }
