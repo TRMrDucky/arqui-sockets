@@ -12,16 +12,17 @@ import com.google.gson.Gson;
  */
 public class ASClient {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Red red = new Red();
         Gson gson = new Gson();
         Mensaje mensaje = new Mensaje("TRMrDucky", "Saludos desde el emisor");
-    
-        String json = gson.toJson(mensaje);
 
+        String json = gson.toJson(mensaje);
+        System.out.println(json);
         red.agregar(json);
         red.enviar();
 
+        Thread.sleep(1000);
     }
-    
+
 }

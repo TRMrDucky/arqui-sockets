@@ -15,6 +15,6 @@ public class ASReceptor {
         
         String jsonInput = red.desencolar();
         Mensaje mensaje = gson.fromJson(jsonInput, Mensaje.class);
-        System.out.println(mensaje.toString());
+        System.out.println(mensaje.getEmisor() + " dice: " + mensaje.getMensaje());
     }
 }

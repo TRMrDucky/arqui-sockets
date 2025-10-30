@@ -7,15 +7,12 @@ import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.xml.crypto.Data;
-
 /**
  *
  * @author 52644
  */
 public class Red {
     private final int PUERTO = 8080;
-    private final String IP = "127.0.0.1";
     ServerSocket serverSocket;
     Socket socket;
     String mensajeServer;
@@ -34,23 +31,19 @@ public class Red {
         cola = new LinkedList<String>();
     }
 
-    public void recibir(){
-        while(true){
-            try {
-                socket = serverSocket.accept();
-                BufferedReader entrada = new BufferedReader(new java.io.InputStreamReader(socket.getInputStream()));
-                
-                while(mensajeServer == entrada.readLine()){
-                    cola.add(mensajeServer);
-                }
+    public void recibir() {
 
-                serverSocket.close();
-                socket.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            socket = serverSocket.accept();
+            BufferedReader entrada = new BufferedReader(new java.io.InputStreamReader(socket.getInputStream()));
+
+            if ((mensajeServer = entrada.readLine()) != null) {
+                cola.add(mensajeServer);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        
+
     }
 
     public String desencolar() {
