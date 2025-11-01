@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.as.client;
 
 import com.google.gson.Gson;
@@ -18,7 +14,6 @@ public class ASClient {
         Mensaje mensaje = new Mensaje("TRMrDucky", "Saludos desde el emisor");
 
         String json = gson.toJson(mensaje);
-        System.out.println(json);
         red.agregar(json);
         red.enviar();
 
